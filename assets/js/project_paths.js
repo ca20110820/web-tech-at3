@@ -4,14 +4,15 @@ function getRelativeRoot() {
 
     // Extract the directory path from the URL
     let pathArray = currentFilePath.split("/").filter(x => x !== '');
-    pathArray.pop(); // Remove the file name
-    let directoryPath = pathArray.join("/");
+    pathArray = pathArray.filter(p => !p.includes('.html'));  // Remove the file name
+
+    let directoryPath = pathArray.join("/");  // Possible to have no elements
 
     // Calculate the relative path to the root
     let pathSegments = directoryPath.split("/");
     let relativeRoot = "";
 
-    if (pathArray.length === 0) {
+    if (pathArray.length === 1) {
         relativeRoot += "./"
     } else {
         for (let i = 0; i < pathSegments.length - 1; i++) {
