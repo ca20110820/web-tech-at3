@@ -1,13 +1,16 @@
 customElements.define(
-    "base-header-footer",
+    "project-card",
     class extends HTMLElement {
         constructor() {
             super();
 
             /* Custom HTML Attributes */
             let rootDir = this.getAttribute('root-dir');
+            let btnHref = this.getAttribute('src');
+            let btnText = this.getAttribute('btn-label');
+            let cardTitle = this.getAttribute('title');
 
-            fetch(`${rootDir}templates/base.html`)
+            fetch(`${rootDir}templates/project-card-template.html`)
                 .then(async response => {
                     if (!response.ok) {
                         throw new Error('Failed to fetch');
@@ -18,7 +21,7 @@ customElements.define(
                     const parser = new DOMParser();
                     const dom = parser.parseFromString(htmlString, 'text/html');
 
-                    let template = dom.getElementById("template-base");
+                    let template = dom.getElementById("project-card-template");
                     if (!template) {
                         throw new Error('Template not found');
                     }
@@ -27,20 +30,14 @@ customElements.define(
                     const shadowRoot = this.attachShadow({mode: "open"});
                     shadowRoot.appendChild(templateContent.cloneNode(true));
 
-                    // Get current year for footer
-                    shadowRoot.querySelector('#year').textContent = (new Date().getFullYear()).toString();
+                    // Set Card Button Attributes
+                    let btn = shadowRoot.querySelector('#button');  // Get the Card Button
+                    btn.href = btnHref;  // Set the HTMLElement href attribute
+                    btn.textContent = btnText;  // Set the Button Label
 
-                    // Bind click event to the menu-toggle
-                    shadowRoot.querySelector('#menu-toggle').addEventListener('click', () => {
-                        this.showHamburgerItems();
-                    });
-
-                    // Set the paths for hrefs with class="class-path"
-                    shadowRoot.querySelectorAll('.class-path').forEach(elem => {
-                        let hrefValue = elem.getAttribute('href');
-                        elem.setAttribute('href', rootDir + hrefValue);
-                        console.log(`New href for ${elem}`, `${rootDir + hrefValue}`);
-                    });
+                    // Set Card Title
+                    let title = shadowRoot.querySelector('#title');
+                    title.textContent = cardTitle;
 
                     // Add Site Style with Relative Path
                     let style = shadowRoot.querySelector('style');
@@ -50,11 +47,6 @@ customElements.define(
                 .catch(error => {
                     console.error('Error fetching or parsing base.html template:', error);
                 });
-        }
-
-        /* Show the hamburger menu */
-        showHamburgerItems() {
-            this.shadowRoot.querySelector('#header-nav').classList.toggle('hidden');
         }
     },
 );
