@@ -1,3 +1,5 @@
+import {getRelativeRoot} from "../assets/js/project_paths.js";
+
 customElements.define(
     "base-header-footer",
     class extends HTMLElement {
@@ -7,29 +9,7 @@ customElements.define(
             /* Custom HTML Attributes */
             // ...
 
-            // Get the current URL
-            // Need to use the document that's using the template
-            let currentUrl = document.location.pathname;
-
-            // Extract the directory path from the URL
-            let pathArray = currentUrl.split("/").filter(x => x !== '');
-            pathArray.pop(); // Remove the file name
-            let directoryPath = pathArray.join("/");
-
-            // Calculate the relative path to the root
-            let pathSegments = directoryPath.split("/");
-            let relativeRoot = "";
-
-            if (pathArray.length === 0) {
-                relativeRoot += "./"
-            }
-            else {
-                for (let i = 0; i < pathSegments.length - 1; i++) {
-                    relativeRoot += "../"
-                }
-            }
-
-            let rootDir = relativeRoot;
+            let rootDir = getRelativeRoot();
 
             fetch(`${rootDir}templates/base.html`)
                 .then(async response => {

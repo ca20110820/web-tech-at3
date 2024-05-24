@@ -1,3 +1,5 @@
+import {getRelativeRoot} from "../assets/js/project_paths.js";
+
 customElements.define(
     "project-card",
     class extends HTMLElement {
@@ -5,7 +7,7 @@ customElements.define(
             super();
 
             /* Custom HTML Attributes */
-            let rootDir = this.getAttribute('root-dir');
+            let rootDir = getRelativeRoot();
             let btnHref = this.getAttribute('src');
             let btnText = this.getAttribute('btn-label');
             let cardTitle = this.getAttribute('title');
