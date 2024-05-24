@@ -5,7 +5,31 @@ customElements.define(
             super();
 
             /* Custom HTML Attributes */
-            let rootDir = this.getAttribute('root-dir');
+            // ...
+
+            // Get the current URL
+            // Need to use the document that's using the template
+            let currentUrl = document.location.pathname;
+
+            // Extract the directory path from the URL
+            let pathArray = currentUrl.split("/").filter(x => x !== '');
+            pathArray.pop(); // Remove the file name
+            let directoryPath = pathArray.join("/");
+
+            // Calculate the relative path to the root
+            let pathSegments = directoryPath.split("/");
+            let relativeRoot = "";
+
+            if (pathArray.length === 0) {
+                relativeRoot += "./"
+            }
+            else {
+                for (let i = 0; i < pathSegments.length - 1; i++) {
+                    relativeRoot += "../"
+                }
+            }
+
+            let rootDir = relativeRoot;
 
             fetch(`${rootDir}templates/base.html`)
                 .then(async response => {
@@ -39,7 +63,6 @@ customElements.define(
                     shadowRoot.querySelectorAll('.class-path').forEach(elem => {
                         let hrefValue = elem.getAttribute('href');
                         elem.setAttribute('href', rootDir + hrefValue);
-                        console.log(`New href for ${elem}`, `${rootDir + hrefValue}`);
                     });
 
                     // Add Site Style with Relative Path
