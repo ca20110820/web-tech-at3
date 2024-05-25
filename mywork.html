@@ -19,7 +19,77 @@
 <body>
 
 <base-header-footer>
-    <main slot="main-content">
+    <main slot="main-content" class="container mx-auto mt-8 p-6">
+        <article class="mb-12">
+            <header class="mb-6">
+                <h2 class="text-2xl font-semibold">Current Projects</h2>
+                <p class="text-lg">Here are some of the projects I am currently working on at TAFE:</p>
+            </header>
+
+            <!--List the top 3 projects I'm currently working on-->
+            <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Project 1 -->
+                <section class="bg-white shadow-lg rounded-lg overflow-hidden">
+                    <img src="./assets/img/current-projects/personal-website.PNG" alt="Project 1"
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Personal Portfolio Website</h3>
+                        <p class="text-gray-700 mb-4">
+                            This project is an assessment for my <i>Web Technologies</i> cluster at TAFE, where we
+                            create our own personal static portfolio website and deploy it to GitHub Pages.
+                        </p>
+                        <a href="https://github.com/ca20110820/web-tech-at3"
+                           target="_blank"
+                           class="text-blue-600 hover:underline">
+                            View on GitHub
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Project 2 -->
+                <section class="bg-white shadow-lg rounded-lg overflow-hidden">
+                    <img src="./assets/img/current-projects/coingeckomaui.PNG" alt="Project 2"
+                         class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">CryptoMAUI</h3>
+                        <p class="text-gray-700 mb-4">
+                            This mobile app, built with .NET MAUI, provides a UI for the <a class="text-blue-600"
+                                                                                            target="_blank"
+                                                                                            href="https://www.coingecko.com">CoinGecko
+                            API</a>,
+                            which offers analytics and cryptocurrency information for users.
+                        </p>
+                        <a href="https://github.com/ca20110820/CoinGeckoMAUI"
+                           target="_blank"
+                           class="text-blue-600 hover:underline">
+                            View on GitHub
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Project 3 -->
+                <section class="bg-white shadow-lg rounded-lg overflow-hidden">
+                    <img src="./assets/img/current-projects/open-source-contributions.PNG"
+                         alt="Project 3" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Open-Source Contribution</h3>
+                        <p class="text-gray-700 mb-4">
+                            The goal of this project is to find GitHub repositories where we can collaborate and
+                            communicate with other developers. This includes bug hunting, adding features, raising
+                            GitHub issues, making pull requests, etc. The project I chose is <a class="text-blue-600"
+                                                                                                href="https://github.com/Mrinank-Bhowmick/python-beginner-projects"
+                                                                                                target="_blank"><i>Mrinank-Bhowmick/python-beginner-projects</i></a>,
+                            and I've made three contributions.
+                        </p>
+                        <a href="https://github.com/ca20110820/python-beginner-projects"
+                           target="_blank"
+                           class="text-blue-600 hover:underline">
+                            View on GitHub
+                        </a>
+                    </div>
+                </section>
+            </section>
+        </article>
     </main>
 </base-header-footer>
 
