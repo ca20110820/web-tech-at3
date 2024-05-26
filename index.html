@@ -19,21 +19,29 @@
 </head>
 <body>
 
+<!--Background Video-->
+<video autoplay muted loop class="absolute inset-0 w-full h-full object-fill">
+    <source src="./assets/media/into-the-matrix.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
 <base-header-footer>
     <main slot="main-content" class="container mx-auto flex flex-col items-center justify-start my-[30px]">
-        <section class="text-center flex flex-col justify-between class-home-paragraphs">
+        <!--Welcome-->
+        <section class="z-0 backdrop-filter backdrop-blur-3xl text-center text-shocking-pink-500 flex flex-col justify-between class-home-paragraphs">
             <p class="text-3xl font-bold mb-4">Welcome to my Personal Website!</p>
             <p class="text-lg mb-4">
                 I'm a passionate programmer on a journey to become a versatile DevOps and full-stack developer.
             </p>
-            <p class="text-lg mb-4">
+            <p class="text-xl mb-4">
                 With a blend of creativity and technical prowess, I thrive on solving complex problems
                 and building innovative solutions. Join me as I embark on this exciting adventure of continuous learning
                 and growth in the ever-evolving world of technology.
             </p>
         </section>
 
-        <section>
+        <!--Terminal Design-->
+        <section class="z-0 mt-3">
             <aside class="bg-black text-white p-6 rounded-lg w-screen max-w-lg font-mono">
                 <div class="flex justify-between items-center">
                     <div class="flex space-x-2 text-red-500">

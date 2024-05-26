@@ -63,6 +63,9 @@ module.exports = {
                     '900': '#0a5270',
                     '950': '#06344b',
                 },
+            },
+            backgroundImage: {
+                'data-analytics': "url('/assets/img/data-background.jpg')"
             }
         },
     },
