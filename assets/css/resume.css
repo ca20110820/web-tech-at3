@@ -2,3 +2,10 @@
     font-family: "Chivo Mono", monospace;
     font-style: normal;
 }
+
+main {
+    background-image: url('../img/data-background.jpg');
+    background-size: contain;
+    background-repeat: repeat;
+    background-position: center;
+}
